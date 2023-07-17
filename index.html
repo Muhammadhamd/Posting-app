@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .blog-div{
+        display: flex;
+        flex-direction: column;
+         align-items: center;
+    }
+</style>
+<body>
+    
+    <form id="addnewblog">
+        <input type="text" id="heading">
+        <input type="text" id="paragraph">
+        <input type="submit" value="submit">
+    </form>
+
+    <div class="blog-div">
+       
+    </div>
+    <script type="module">
+      
+      
+      
+      
+       
+     // Import the functions you need from the SDKs you need
+       
+     import { initializeApp, } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import {
+            collection, addDoc, getFirestore,
+            getDocs, onSnapshot, serverTimestamp,
+            query, orderBy, deleteDoc, doc, updateDoc
+        } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBEDzzo5U16CzvjwjZAF52JFJVHtYcqxlw",
+          authDomain: "blogging-hamd.firebaseapp.com",
+          projectId: "blogging-hamd",
+          storageBucket: "blogging-hamd.appspot.com",
+          messagingSenderId: "1082381242714",
+          appId: "1:1082381242714:web:8e0fc3375d1fd2a66fe363"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+     
+       
+        
+
+
+        document.querySelector("#addnewblog").addEventListener("submit" ,
+         async (event) =>{
+            event.preventDefault()
+            let blogHeading = document.querySelector("#heading").value;
+            let blogParagraph = document.querySelector("#paragraph").value;
+
+
+            try{
+                const docRef = await addDoc(collection(db , 'blogs'),
+                
+                
+                {
+                    blogHeading: blogHeading,
+                    blogParagraph: blogParagraph,
+                    createdAt: serverTimestamp()
+                });
+                console.log("Document written with ID: ", docRef.id)
+            } catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+        })
+
+
+
+        
+        document.addEventListener("readystatechange",
+        async (e)=>{
+            console.log(`readystate: ${document.readyState}`)
+
+            const q = query(collection(db, "blogs"));
+
+            const querySnapshot = await getDocs(q);
+
+            let res = await fetch("/" , {
+                method:"POST",
+                "headers":{
+                        "Contest-type": "application/json"
+                    },
+                    "body": JSON.stringify({
+                        
+                        querySnapshot
+                    })
+            })
+
+            // let data;
+            // querySnapshot.forEach(blog => {
+                
+            //     // console.log(`${blog.id});
+
+            //  data = blog.data()
+                // document.querySelector(".blog-div").innerHTML += `
+                
+                // <div style="border:2px solid; margin:20px 0 10px 0;">
+                //     <div style="font-size:10px;">${blog.id}</div>
+                //     <h1>${data.blogHeading}</h1>
+                //     <p>${data.blogParagraph}</p>
+                //     </div>
+                // `
+                
+
+                
+                
+            });
+            // console.log(querySnapshot)
+            
+        // })
+        
+      </script>
+
+</body>
+</html>
