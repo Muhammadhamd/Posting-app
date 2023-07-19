@@ -1,7 +1,6 @@
 {
   "name": "admin-login-mongobd",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,5 +16,14 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhammadhamd/admin-login-mongobd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Muhammadhamd/admin-login-mongobd/issues"
+  },
+  "homepage": "https://github.com/Muhammadhamd/admin-login-mongobd#readme",
+  "description": ""
 }
