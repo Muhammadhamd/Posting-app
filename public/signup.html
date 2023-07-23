@@ -5,36 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
-<body class="bg-slate-50 flex justify-center  ">
-    <form action="" id="formdata" class="max-w-[400px] shadow rounded flex flex-col w-full p-[15px] bg-white border-4 border-indigo-200 border-b-indigo-500 mt-6">
-       <div class="w-full flex justify-center "><h1 class="text-violet-700 font-bold text-[20px]">Sign-UP</h1></div>
-        <label for="name" class="mt-3">
-            <span class="text-sm text-slate-500">Your Name*</span>
-            <input type="text" name="name" placeholder="name" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
-        </label>
-        <label for="email" class="mt-3">
-            <span class="text-sm text-slate-500">Email</span>
-        <input type="email" id="email" name="Useremail" placeholder="email" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
-        </label>
-        <label for="password" class="mt-3">
-            <span class="text-sm text-slate-500">Password</span>
-        <input type="password" id="password" name="password" placeholder="pass" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
-        </label>
-        <div class="flex justify-center">
-            <input type="submit" value="submit" class="px-4 py-2 rounded-full hover:bg-violet-100 cursor m-4 text-violet-700 font-semibold bg-violet-50 text-sm text-slate-500 ">
-        </div>
-        <div class="mt-[25px]">
-            <ul class="flex gap-[20px] w-full justify-center">
-                <li class="login-with-google">google</li>
-                <li class="login-with-github">github</li>
-                <li class="login-with-facebook">Facebook</li>
-            </ul>
-        </div>
-    </form>
+<body class="bg-slate-50  ">
+  <nav class="flex items-center justify-between mb-[30px]">
+    <div>
+        <h1 class="font-bold text-[30px] text-violet-700 ml-[30px]">DShare</h1>
+    </div>
+    <div class="flex max-w-[400px] w-full justify-start">
+        <ul class="flex gap-[15px] mr-6">
+            <li class="text-violet-700  hover:border-b-violet-700 hover:border-b-[2px] text-[16px]">
+                <a href="./">Create</a>
+            </li>
+            <li class="text-violet-700  hover:border-b-violet-700 hover:border-b-[2px] text-[16px]">
+                <a href="" id="signout">Logout</a>
+            </li>
+        </ul>
+        <a href="profile.html">
+            <div class="flex items-baseline ml-6 text-[20px] hover:text-violet-700 cursor">
+            <i class=" fa fa-user mr-1"></i>
+            <h1 id="username" class="text-[16px] hover:font-semibold">Loading....</h1>
+        </div></a>
+    </div>
+</nav>
+<div class="flex justify-center ">
+  <form action="" id="formdata" class="max-w-[400px] shadow rounded flex flex-col w-full p-[15px] bg-white border-4 border-indigo-200 border-b-indigo-500 mt-6">
+    <div class="w-full flex justify-center "><h1 class="text-violet-700 font-bold text-[20px]">Sign-UP</h1></div>
+     <label for="name" class="mt-3">
+         <span class="text-sm text-slate-500">Your Name*</span>
+         <input type="text" name="name" placeholder="name" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
+     </label>
+     <label for="email" class="mt-3">
+         <span class="text-sm text-slate-500">Email</span>
+     <input type="email" id="email" name="Useremail" placeholder="email" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
+     </label>
+     <label for="password" class="mt-3">
+         <span class="text-sm text-slate-500">Password</span>
+     <input type="password" id="password" name="password" placeholder="pass" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
+     </label>
+     <div class="flex justify-center">
+         <input type="submit" value="submit" class="px-4 py-2 rounded-full hover:bg-violet-100 cursor m-4 text-violet-700 font-semibold bg-violet-50 text-sm text-slate-500 ">
+     </div>
+     <div class="mt-[25px]">
+         <ul class="flex gap-[20px] w-full justify-center">
+             <li class="login-with-google">google</li>
+             <li class="login-with-github">github</li>
+             <li class="login-with-facebook">Facebook</li>
+         </ul>
+     </div>
+ </form>
+</div>
+    
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js "></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js "></script>
-    <script>
+<script>
         const firebaseConfig = {
     apiKey: "AIzaSyBEDzzo5U16CzvjwjZAF52JFJVHtYcqxlw",
     authDomain: "blogging-hamd.firebaseapp.com",
@@ -49,61 +74,68 @@
   let provider = new firebase.auth.GoogleAuthProvider();
   let auth = firebase.auth();
 
+document.querySelector(".login-with-google").addEventListener('click', (e)=>{
+      firebase.auth()
+.signInWithPopup(provider)
+.then((result) => {
+/** @type {firebase.auth.OAuthCredential} */
+var credential = result.credential;
 
-        document.querySelector(".login-with-google").addEventListener('click', (e)=>{
-            firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-    var credential = result.credential;
+// This gives you a Google Access Token. You can use it to access the Google API.
+var token = credential.accessToken;
+// The signed-in user info.
 
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
-    // The signed-in user info.
-    
-    funForUserName(result);
+// funForUserName(result);
+console.log();
 
-    // IdP data available in result.additionalUserInfo.profile.
-      // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-        })
+// IdP data available in result.additionalUserInfo.profile.
+// ...
+}).catch((error) => {
+// Handle Errors here.
+var errorCode = error.code;
+var errorMessage = error.message;
+// The email of the user's account used.
+var email = error.email;
+// The firebase.auth.AuthCredential type that was used.
+var credential = error.credential;
+console.log(error)
+// ...
+});
+  })
+  
+//   function funForUserName(result){
+//     console.log(result.user.displayName)
+//   }
+  firebase.auth().onAuthStateChanged(function(user) {
+    console.log(user.displayName)
+
+    if (user) {
+    window.location.href = "/muhammadhamd"
         
-        function funForUserName(result){
-            console.log(result.user.displayName)
-        }
-        
-        
-        document.getElementById("formdata").addEventListener("submit",(event)=>{
-            event.preventDefault();
+    }
 
+  })
+
+  //   ...................login with user and email........................
+
+  document.getElementById("formdata").addEventListener("submit",(event)=>{
+      event.preventDefault();
 let email = document.getElementById("email").value;
 let password = document.getElementById("password").value;
 
 firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-        window.location.href = "../index.html";
-    })
-    .catch((error) => {
-        //console.log(error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Username Already Taken',
-            confirmButtonColor: "#212121"
-        })
-    });
-        })
+.auth()
+.createUserWithEmailAndPassword(email, password)
+.then((userCredential) => {
+  window.location.href = "../index.html";
+})
+.catch((error) => {
+  console.log(error);
+  
+});
+  })
+  
         </script>
+
 </body>
 </html>

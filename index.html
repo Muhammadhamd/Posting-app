@@ -5,138 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<style>
-    .blog-div{
-        display: flex;
-        flex-direction: column;
-         align-items: center;
-    }
-</style>
-<body class="bg-slate-50">
-    
-    <div class="w-100 flex justify-center">
-        <form id="addnewblog" class="bg-white mt-[20px] max-w-[600px] w-[100%] shadow-[0px_0px_4px_#00000070] p-[20px] rounded-md">
-            <input type="text" id="heading" placeholder="Your topic here......" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500">
-            <div id="upload-file-div" class="w-[100%] px-[10px] py-[12px] rounded-[12px] flex justify-center">
-                <input type="file" hidden id="upload-file" class="block  text-sm text-slate-500
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-full file:border-0
-                file:text-sm file:font-semibold
-                file:bg-violet-50 file:text-violet-700
-                hover:file:bg-violet-100"></div>
-
-
-                <div class="flex justify-center">
-                    <img src="" id="display-selected-img" alt="">
-                </div>
-                <label for="Paragraph" class="mt-1">
-                    <span class="text-slate-500 text-sm">You can write about this post here*</span>
-            <textarea name="" id="paragraph" class="w-full px-3 py-2 text-sm rounded-md border-slate-300 border bg-wheat focus:ring-1 outline-none focus:ring-slate-500 shadow-slate-50 text-slate-500 font-bold cols="0"></textarea>
-
-                </label>
-            <div class="flex justify-center w-full">
-                <input type="submit" value="Upload" class="px-4 py-2 rounded-full hover:bg-violet-100 cursor m-4 text-violet-700 font-semibold bg-violet-50 text-sm text-slate-500 ">
+<body class="bg-[#f8fafc]">
+    <div class="main-container">
+        <nav class="flex items-center justify-between mb-[30px]">
+            <div>
+                <h1 class="font-bold text-[30px] text-violet-700 ml-[30px]">DShare</h1>
             </div>
-        </form>
-    </div>
-
-    <div class="mt-[40px] gap-[30px] blog-div">
-       <div class=" max-w-[500px] shadow-[0px_0px_4px_#00000070] rounded-lg bg-white py-[30px] px-[0px] ">
-        <h3 class="font-bold text-slate-500">this is an image</h3>
-        <div class="min-h-[250px] bg-slate-50 flex justify-center items-center w-full">
-            <img class="" src="https://muhammadhamd.github.io/multiple-webpage-smit/img/download.jpg" alt="">
+            <div class="flex max-w-[400px] w-full justify-start">
+                <ul class="flex gap-[15px] mr-6">
+                    <li class="text-violet-700  hover:border-b-violet-700 hover:border-b-[2px] text-[16px]">
+                        <a href="/muhammadhamd/create-post">Create</a>
+                    </li>
+                    <li class="text-violet-700  hover:border-b-violet-700 hover:border-b-[2px] text-[16px]">
+                        <a href="" id="signout">Logout</a>
+                    </li>
+                </ul>
+                <a href="/muhammadhamd">
+                    <div class="flex items-baseline ml-6 text-[20px] hover:text-violet-700 cursor">
+                    <i class=" fa fa-user mr-1"></i>
+                    <h1 id="username" class="text-[16px] hover:font-semibold"></h1>
+                </div></a>
+            </div>
+        </nav>
+      <div class="flex justify-center">
+        <div class="flex justify-center items-center bg-white w-[400px] border rounded">
+            <i class="fa fa-search"></i>
+             <input type="text" name="" placeholder="search...." id="inputfilterpost" class=" py-2 px-4 max-w-[350px] w-full outline-none">
+           </div>
+      </div>
+        <div class="w-full flex flex-col items-center gap-[30px] mt-[30px] homefeed">
+             <!-- <div id='post${blog.id}' class="animate-pulse w-full max-w-[500px]  shadow-[0px_0px_4px_#00000070] rounded-lg bg-white py-[30px] px-[0px] postsall">
+                <div class="p-[10px]">
+                <div class="flex items-center">
+                <i class="fa fa-user"></i>
+                <h1 class="ml-1 text-[15px] text-slate-500 font-semibold h-3 rounded bg-slate-200 w-[150px]"></h1>
+                </div>
+                <h1 class="text-[10px] text-slate-500 h-1 rounded bg-slate-200 w-[100px]"></h1>
+                </div>
+                <div class="min-h-[250px] bg-slate-50 flex justify-center items-center w-full bg-slate-200">
+                    <img src="${data.BlogImg}" alt="">
+                </div>
+                <div class="p-[10px] flex flex-col gap-[10px]">
+                    <p class="font-bold text-slate-500 h-2 rounded bg-slate-200 w-full "></p>
+                <p class="font-bold text-slate-500 h-2 rounded bg-slate-200 w-full"></p>
+                <p class="font-bold text-slate-500 h-2 rounded bg-slate-200 w-full"></p>
+                <p class="text-sm h-2 rounded bg-slate-200 w-[350px]"></p>
+                </div>
+               </div> -->
         </div>
-        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse, voluptatibus, cupiditate, at sint atque corrupti accusantium qui quod voluptas odio soluta earum tempore quidem quisquam suscipit perferendis quae. Numquam?</p>
-       </div>
     </div>
-     <!-- firebase -->
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js "></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js "></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="./public/data.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+   
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="./js/homefeed.js"></script>
+    <script src="./js/data.js"></script>
     <script>
-        const uploadFile = document.getElementById("upload-file")
 
-        
-        uploadFile.addEventListener("change", (event) =>{
-            // console.log(URL.createObjectURL(uploadFile.files[0]))
+        // const basedURL = "http://localhost:200/"
 
-            let output = document.getElementById('display-selected-img');
-    output.src = URL.createObjectURL(uploadFile.files[0]);
-    // output.onload = function() {
-    //   URL.revokeObjectURL(output.src) // free memory
-    //     }
-    })
-    
-
-  
+        // const usersend = document.getElementById("senduser")
+        // usersend.addEventListener("click", )
     </script>
-    <!-- <script type="module"> -->
-
-<!--       
-      
-      
-      
-       
-     // Import the functions you need from the SDKs you need
-       
-    //  import { initializeApp, } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    //     import {
-    //         collection, addDoc, getFirestore,
-    //         getDocs, onSnapshot, serverTimestamp,
-    //         query, orderBy, deleteDoc, doc, updateDoc
-    //     } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        
-       
-        
-
-
-      
-
-
-
-        
-        // document.addEventListener("readystatechange",
-        // async (e)=>{
-        //     console.log(`readystate: ${document.readyState}`)
-
-        //     const q = query(collection(db, "blogs"));
-
-        //     const querySnapshot = await getDocs(q);
-
-          
-
-        //     // let data;
-        //     querySnapshot.forEach(blog => {
-                
-        //         // console.log(`${blog.id});
-
-        //      data = blog.data()
-        //         document.querySelector(".blog-div").innerHTML += `
-                
-        //         <div style="border:2px solid; margin:20px 0 10px 0;">
-        //             <div style="font-size:10px;">${blog.id}</div>
-        //             <h1>${data.blogHeading}</h1>
-        //             <p>${data.blogParagraph}</p>
-        //             </div>
-        //         `
-                
-
-                
-                
-        //     });
-        //     // console.log(querySnapshot)
-            
-        // })
-         -->
-      <!-- </script> -->
-
 </body>
+
 </html>

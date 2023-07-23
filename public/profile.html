@@ -4,18 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
+    <nav class="flex items-center justify-between mb-[30px]">
+        <div>
+            <h1 class="font-bold text-[30px] text-violet-700 ml-[30px]">DShare</h1>
+        </div>
+        <div class="flex max-w-[400px] w-full justify-start">
+            <ul class="flex gap-[15px] mr-6">
+                <li class="text-violet-700  hover:border-b-violet-700 hover:border-b-[2px] text-[16px]">
+                    <a href="/muhammadhamd/create-post">Create</a>
+                </li>
+                <li class="text-violet-700  hover:border-b-violet-700 hover:border-b-[2px] text-[16px]">
+                    <a href="" id="signout">Logout</a>
+                </li>
+            </ul>
+            <a href="">
+                <div class="flex items-baseline ml-6 text-[20px] hover:text-violet-700 cursor">
+                <i class=" fa fa-user mr-1"></i>
+                <h1 id="username" class="text-[16px] hover:font-semibold">Loding.....</h1>
+            </div></a>
+        </div>
+    </nav>
     <button id="signout">signout</button>
-
+    <a href="./index.html">feed</a>
+    <a href="../index.html">create</a>
+    <a href="./signup.html">create</a>
    
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js "></script>
    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js "></script>
     
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="./data.js">
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+   <script src="../js/data.js"></script>
+   <!-- <script>
+        const firebaseConfig = {
+  
+  apiKey: "AIzaSyBEDzzo5U16CzvjwjZAF52JFJVHtYcqxlw",
+   authDomain: "blogging-hamd.firebaseapp.com",
+   projectId: "blogging-hamd",
+   storageBucket: "blogging-hamd.appspot.com",
+   messagingSenderId: "1082381242714",
+   appId: "1:1082381242714:web:8e0fc3375d1fd2a66fe363"
+ };
+
+ // Initialize Firebase
+ firebase.initializeApp(firebaseConfig);  
+ 
+  let db = firebase.firestore();
+  let provider = new firebase.auth.GoogleAuthProvider();
+ let auth = firebase.auth();
+
+        firebase.auth().onAuthStateChanged( function(user) {
+
+// show user name in navbar
+
+if (user) {
+
+
+   if(user.displayName != null || user.displayName !=''){
+
+      
+      document.getElementById("username").innerHTML = user.displayName
+   
      
+      
+   
+   
+   }else{
+      document.getElementById("username").innerHTML = user.email
+
+   }
+   
+}else{
+   window.location.href = "/login";
+}
+
+});
         
-    </script>
+    </script> -->
 </body>
 </html>

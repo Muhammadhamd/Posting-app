@@ -1,0 +1,128 @@
+
+
+this file includes all the features tobe added in this project
+
+◼ create html pages{
+    feed page;
+    profile page
+    create-post,
+    login , sigin
+}
+
+◼ use Tailwind
+
+◼ what should be include in html pages{
+
+    feed page:{
+        • user can see all posts,
+        • user can search post by hashtags,
+        • user can delete there posts only
+        • owner of this App(me) able to delete anyone's post(there should be no restirctions for me)
+        • user can see all other registerd users name 
+
+    }
+
+    create-post page{
+        • user can post image
+        • user can post paragraph and heading for post
+        • user can post hastags
+        • show loading during the process
+        • show (uploaded or error) messege when the process done
+        • along with uploaded msg there should be direct link to the post
+    }
+
+    registration page{
+        • login page{
+            login with (email , password),
+            login with (google)
+            login with (Github)
+            login with (FaceBook)
+            login with (number)
+        }
+        • registration page{
+
+            register with (email , password),
+            register with (google)
+            register with (Github)
+            register with (FaceBook)
+            register with (number)
+        
+        }
+        • if user is not login user should be nevigated to the login page
+
+    }
+
+    Profile page{
+        profile page should be include{
+        • user Name{
+            userName should be unique
+        }
+        • Name
+        • little description about user
+        • profile photo
+        • posts uploaded by that user
+        }
+    }
+
+
+}
+
+◼ database{
+    firebase,
+    mongodb
+}
+
+◼ server request{
+
+   
+        • www.example.com/{
+            should nevigate to feed page
+        }
+        • www.example.com/userid{
+            should nevigate to user Profile
+        }
+        • www.example.com/login{
+            should nevigate to login page
+        }
+        • www.example.com/userid/create-post{
+            should nevigate to create-post
+        }
+        • www.example.com/userid/:postid{
+            should nevigate to that post
+        }
+        • www.example.com/wrongaddress{
+            should nevigate to 404 page
+        }
+
+}
+
+◼ post features{
+
+    •username
+    •namename
+    •image
+    •heading
+    •description
+    •time ago 
+
+    •Hamburger{
+
+        •deletepost:{
+            only there own's post
+        }
+        • copy url
+        • report post}
+}       
+
+◼ navbar{
+    •logo
+    •current User name
+    •links{
+
+        •create post page
+        •feed page
+        •logout page
+        •profile page
+    }
+    
+}
