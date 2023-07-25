@@ -176,7 +176,6 @@ document.querySelectorAll("#signout").forEach((signOutBtn) =>{
       })
       .then((docRef) =>{
          console.log("Document written with ID: ", docRef.id)
-         let ulodadedMSG = document.createElement('div')
          ulodadedMSG.classList = "px-[12px] py-[10px] bg-black text-white font-bold h-[30px] rounded-[30px] shadow-[0px_0px_4px_#00000070] flex justify-between items-center text-[12px] tracking-wide fixed right-50 left-50 top-10"
          ulodadedMSG.innerHTML = `Uploaded sucessfully <a href="/#post${docRef.id}">go direct</a>`
          
